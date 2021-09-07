@@ -19,6 +19,9 @@ RUN  arch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
 && chmod +x /usr/local/bin/gosu \
 && gosu nobody true
 
+RUN apt-get update && apt-get install net-tools
+RUN apt-get update && apt-get install vim -y
+RUN apt-get update && apt-get install telnet
 
 ENV PATH /usr/share/work:/usr/local/bin:/usr/local/bin/gosu:$PATH
 
