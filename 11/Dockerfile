@@ -22,6 +22,8 @@ RUN  arch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
 RUN apt-get update && apt-get install net-tools
 RUN apt-get update && apt-get install vim -y
 RUN apt-get update && apt-get install telnet
+RUN apk update && apk upgrade && apk add ca-certificates && update-ca-certificates && rm -rf /var/cache/apk/*
+
 
 ENV PATH /usr/share/work:/usr/local/bin:/usr/local/bin/gosu:$PATH
 
